@@ -36,6 +36,7 @@ limiter = Limiter(
     key_func=get_remote_address,
     storage_uri=REDIS_URL,
     default_limits=[],
+    swallow_errors=True,   # Jangan crash jika Redis tidak tersedia
 )
 
 # ── KML Processing ────────────────────────────────────────────────────────────
