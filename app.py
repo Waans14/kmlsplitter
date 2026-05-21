@@ -111,6 +111,7 @@ HTML = """<!DOCTYPE html>
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>KML Splitter Pro — Ekstrak Polygon KML</title>
 <meta name="description" content="Pecah file KML menjadi polygon individual dalam format ZIP.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%234f46e5' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><polygon points='12 2 2 7 12 12 22 7 12 2'/><polyline points='2 17 12 22 22 17'/><polyline points='2 12 12 17 22 12'/></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
@@ -131,14 +132,14 @@ main{flex:1;display:flex;align-items:center;justify-content:center;padding:48px 
 .dz{border:2px dashed var(--bd);border-radius:14px;padding:36px 24px;text-align:center;cursor:pointer;transition:border-color .2s,background .2s,transform .15s;position:relative}
 .dz:hover,.dz.over{border-color:var(--p);background:var(--pl);transform:scale(1.01)}
 .dz input{position:absolute;inset:0;opacity:0;width:100%;height:100%;cursor:pointer}
-.dz-icon{font-size:2.8rem;margin-bottom:10px;display:block;transition:transform .2s}
+.dz-icon{margin-bottom:10px;display:flex;justify-content:center;color:var(--p);transition:transform .2s}
 .dz:hover .dz-icon,.dz.over .dz-icon{transform:translateY(-5px)}
 .dz-main{font-weight:600;font-size:.95rem}
 .dz-sub{font-size:.8rem;color:var(--mu);margin-top:5px}
 /* file info */
 #fi{display:none;align-items:center;gap:12px;background:var(--pl);border:1px solid #c7d2fe;border-radius:12px;padding:12px 16px;margin-top:16px;animation:slideDown .25s ease}
 #fi.show{display:flex}
-.fi-icon{font-size:1.6rem;flex-shrink:0}
+.fi-icon{flex-shrink:0;color:var(--p);display:flex;align-items:center}
 .fi-body{flex:1;min-width:0}
 .fi-name{font-weight:600;font-size:.875rem;color:var(--p);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .fi-size{font-size:.75rem;color:var(--mu)}
@@ -187,7 +188,14 @@ footer{text-align:center;padding:20px;font-size:.8rem;color:var(--mu);border-top
 </div>
 <div id="toasts"></div>
 <header>
-  <div class="logo">🗺️ KML Splitter Pro</div>
+  <div class="logo">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+      <polyline points="2 17 12 22 22 17"></polyline>
+      <polyline points="2 12 12 17 22 12"></polyline>
+    </svg>
+    KML Splitter Pro
+  </div>
   <span class="badge">v2.0</span>
 </header>
 <main>
@@ -196,12 +204,23 @@ footer{text-align:center;padding:20px;font-size:.8rem;color:var(--mu);border-top
     <p class="card-desc">Unggah file <strong>.kml</strong> untuk memecah setiap bidang/polygon menjadi file terpisah dalam satu arsip <strong>ZIP</strong>.</p>
     <div class="dz" id="dz">
       <input type="file" id="kml_file" accept=".kml">
-      <span class="dz-icon">📂</span>
+      <span class="dz-icon">
+        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+          <polyline points="17 8 12 3 7 8"></polyline>
+          <line x1="12" y1="3" x2="12" y2="15"></line>
+        </svg>
+      </span>
       <div class="dz-main">Klik atau seret file KML ke sini</div>
       <div class="dz-sub">Hanya mendukung format <strong>.kml</strong></div>
     </div>
     <div id="fi">
-      <span class="fi-icon">📄</span>
+      <span class="fi-icon">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+          <polyline points="14 2 14 8 20 8"></polyline>
+        </svg>
+      </span>
       <div class="fi-body">
         <div class="fi-name" id="fi-name">—</div>
         <div class="fi-size" id="fi-size">—</div>
@@ -214,7 +233,7 @@ footer{text-align:center;padding:20px;font-size:.8rem;color:var(--mu);border-top
     </button>
   </div>
 </main>
-<footer>&copy; 2026 KML Splitter Utility &mdash; Dinas Kominfo KSB</footer>
+<footer>&copy; 2026 KML Splitter Utility &mdash; @afwansu_</footer>
 <script>
 const dz=document.getElementById('dz'),inp=document.getElementById('kml_file'),
       fi=document.getElementById('fi'),fiN=document.getElementById('fi-name'),
