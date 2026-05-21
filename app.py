@@ -196,7 +196,7 @@ footer{text-align:center;padding:20px;font-size:.8rem;color:var(--mu);border-top
     </svg>
     KML Splitter Pro
   </div>
-  <span class="badge">v2.0</span>
+  <span class="badge">v1.0</span>
 </header>
 <main>
   <div class="card">
